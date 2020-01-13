@@ -1,0 +1,7 @@
+* {margin: 0; padding: 0;}
+.jumbotron {
+    background-image: url("../images/skyline.jpeg");
+}
+.border-btm {
+    border-bottom: 1px solid lightblue;
+}

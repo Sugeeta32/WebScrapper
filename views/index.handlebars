@@ -1,0 +1,31 @@
+<div class="container">
+    <h1 class="display-4 border-btm">Recent Parenting News</h1>
+    {{#each results}}
+        <div class="row my-5 back-lightblue">
+            <div class="col-12 mb-4">
+                <h3>{{{title}}}</h3>
+                {{!-- <h3>Sugeeta</h3> --}}
+                <a href={{{link}}} target="_blank">View Article</a>
+                <br>
+            </div>
+            <div class="col-sm-12 col-lg-6 mb-1">
+                {{#unless saved}}
+                    <button
+                        class="btn btn-outline-link save-btn"
+                        type="button"
+                        data-id={{{id}}}>
+                        Save Article
+                    </button>
+                {{/unless}}
+                {{#if saved}}
+                    <button
+                        class="btn btn-success save-btn"
+                        type="button"
+                        data-id={{{id}}}>
+                        Saved
+                    </button>
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+</div>
