@@ -30,8 +30,8 @@ app.use(bodyParser.urlencoded({
 //var MONGODB_URI = process.env.MONGODB_URI || ("mongodb://localhost/humors_db",{ useNewUrlParser: true });
 //mongoose.connect(MONGODB_URI);
 // mongoose.Promise = Promise;
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/headScrapper";
-// mongoose.connect(MONGODB_URI,{useNewUrlParser: true});
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/headScrapper";
+mongoose.connect(MONGODB_URI,{useNewUrlParser: true});
 
 mongoose.connect("mongodb://localhost/headScrapper", { useMongoClient: true});
 
