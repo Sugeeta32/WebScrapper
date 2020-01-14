@@ -6,7 +6,7 @@ const cheerio = require("cheerio");
 // const request    = require("request-promise");
 const mongoose = require("mongoose");
 var axios = require("axios");
-const Model = require("../models/model.js");
+const Models = require("../models/Models.js");
 
 const app = express();
 mongoose.Promise = Promise;
@@ -34,13 +34,13 @@ app.get("/", function (req, res) {
         //resultArray.push(result);
         // Insert the data in the scrapedData db
         results.forEach(result => {
-            Model.find({ title: result.title }, (err, data) => {
+            Models.find({ title: result.title }, (err, data) => {
                 if (err) return handleError(err);
                 if (data == "" && result.title !== "")
-                    Model.create({ title: result.title, link: result.link });
+                    Models.create({ title: result.title, link: result.link });
             });
         });
-        Model.find({}, (err, data) => {
+        Models.find({}, (err, data) => {
             if (err) return handleError(err);
             results = [];
             results = data.reverse();
@@ -55,7 +55,7 @@ app.get("/", function (req, res) {
 });
 app.get('/saved', (req, res) => {
 
-    Model.find({ saved: true }, (err, data) => {
+    Models.find({ saved: true }, (err, data) => {
         if (err) return handleError(err);
         results = [];
         results = data;
@@ -65,7 +65,7 @@ app.get('/saved', (req, res) => {
 
 
 app.get('/notes:id', (req, res) => {
-    Model.findById({ _id: req.params.id }, (err, article) => { res.json(article); });
+    Models.findById({ _id: req.params.id }, (err, article) => { res.json(article); });
 });
 
 
@@ -74,7 +74,7 @@ app.post('/comment', (req, res) => {
     let commentData = { comment: req.body.comment };
 
 
-    Model.updateOne({ _id: req.body.id }, { $push: { comments: commentData } }).exec((err, result) => {
+    Models.updateOne({ _id: req.body.id }, { $push: { comments: commentData } }).exec((err, result) => {
         if (err) throw err;
     });
 });
@@ -82,7 +82,7 @@ app.post('/comment', (req, res) => {
 
 app.put('/save:id', (req, res) => {
     let id = req.params.id;
-    Model.findByIdAndUpdate({ _id: id }, { saved: true }, (err, result) => {
+    Models.findByIdAndUpdate({ _id: id }, { saved: true }, (err, result) => {
         if (err) throw err;
     });
 });
@@ -90,7 +90,7 @@ app.put('/save:id', (req, res) => {
 
 app.put('/remove:id', (req, res) => {
     let id = req.params.id;
-    Model.findByIdAndUpdate({ _id: id }, { saved: false }, (err, result) => {
+    Models.findByIdAndUpdate({ _id: id }, { saved: false }, (err, result) => {
         if (err) throw err;
     });
 });

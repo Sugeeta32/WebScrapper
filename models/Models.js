@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var ModelSchema = new Schema({
+var ModelsSchema = new Schema({
     title: {
       type: String,
      
@@ -24,7 +24,7 @@ var ModelSchema = new Schema({
     
   });
   // Create model from schema using model method
-var Model = mongoose.model("Model", ModelSchema);
+var Models = mongoose.model("Models", ModelsSchema);
 
 //export the Humor Model
-module.exports = Model;
+module.exports = Models;

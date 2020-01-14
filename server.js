@@ -29,10 +29,10 @@ app.use(bodyParser.urlencoded({
 
 //var MONGODB_URI = process.env.MONGODB_URI || ("mongodb://localhost/humors_db",{ useNewUrlParser: true });
 //mongoose.connect(MONGODB_URI);
-// mongoose.Promise = Promise;
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password1@ds263248.mlab.com:63248/heroku_2rwjkmpd";
-mongoose.connect(MONGODB_URI,{useNewUrlParser: true});
-
+mongoose.Promise = Promise;
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password1@ds263448.mlab.com:63448/heroku_7sdtlhfz";
+mongoose.connect(MONGODB_URI,{useMongoClient: true});
+console.log("Mongo URI " + MONGODB_URI);
 // mongoose.connect("mongodb://localhost/headScrapper", { useMongoClient: true});
 
 
