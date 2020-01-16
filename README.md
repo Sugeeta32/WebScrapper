@@ -12,9 +12,13 @@ The scraped article is stored using MongoDB. The backend is written in Javascrip
  
 
 
+
+
 ### Hosting on Heroku
 
   Please check the [~~ Heroku Deployment to see the running app ~~](https://mighty-garden-55111.herokuapp.com/)
+
+
 
 
 
@@ -27,6 +31,8 @@ The scraped article is stored using MongoDB. The backend is written in Javascrip
 3. Run the application using `node server.js` in the terminal.
 
 4. Launch the app in your browser `localhost:PORT` as shown in the terminal.
+
+
 
 
 
