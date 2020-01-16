@@ -6,8 +6,8 @@ $(document).ready(() => {
         event.preventDefault();
         let $btn = event.target;
         let $id = $($btn).data("id");
-alert($id);
-    //change the value with the id that we got in the previous step
+        alert($id);
+        //change the value with the id that we got in the previous step
         $(".modal-post-btn").attr("data-id", $id);
 
 

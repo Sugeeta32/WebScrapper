@@ -70,7 +70,7 @@ app.get('/notes:id', (req, res) => {
 
 
 app.post('/comment', (req, res) => {
-
+console.log("inside /comment");
     let commentData = { comment: req.body.comment };
 
 
@@ -81,6 +81,7 @@ app.post('/comment', (req, res) => {
 
 
 app.put('/save:id', (req, res) => {
+    console.log("inside /save:id");
     let id = req.params.id;
     Models.findByIdAndUpdate({ _id: id }, { saved: true }, (err, result) => {
         if (err) throw err;
