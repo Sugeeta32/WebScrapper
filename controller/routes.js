@@ -1,9 +1,7 @@
 //DEPENDENCIES
 const express = require("express");
-// const bodyParser = require("body-parser");
-// const handlebars = require("express-handlebars");
 const cheerio = require("cheerio");
-// const request    = require("request-promise");
+
 const mongoose = require("mongoose");
 var axios = require("axios");
 const Models = require("../models/Models.js");
@@ -13,17 +11,15 @@ mongoose.Promise = Promise;
 
 app.get("/", function (req, res) {
     axios.get("https://www.babble.com/tag/friendship/").then(function (response) {
-        
+
 
         var $ = cheerio.load(response.data);
         var results = [];
         //var resultArray = [];
         $("article div.bb-article-title").each(function (i, elem) {
-            
+
             var title = $(elem).children("a").text();
             var link = $(elem).children("a").attr("href");
-            // var humor = ($(elem).text());
-            // var link = $(elem).attr("href");
             results.push({
                 title: title,
                 link: link
@@ -70,7 +66,7 @@ app.get('/notes:id', (req, res) => {
 
 
 app.post('/comment', (req, res) => {
-console.log("inside /comment");
+    console.log("inside /comment");
     let commentData = { comment: req.body.comment };
 
 
